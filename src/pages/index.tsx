@@ -1,3 +1,5 @@
+import RankingList from "@/components/RankingList";
+
 export default function Home() {
   return (
     // height = screen - header.height - margin.height ** 2
@@ -8,19 +10,19 @@ export default function Home() {
         <h1 className="text-3xl font-bold">
           Rank your
         </ h1>
-        <h1 className="text-3xl text-purple-700 font-bold">
+        <h1 className="text-3xl text-[#7E71FC] font-bold">
           favorite cities
         </h1>
       </div>
 
 
       {/* Rank Area */}
-      <div className="flex-1 mb-4 bg-gray-200 p-4 overflow-auto px-8">
-        This is where things will be ranked.
+      <div className="flex-1 overflow-auto">
+        <RankingList />
       </div>
 
       {/* Submit Button */}
-      <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+      <button className="bg-[#7E71FC] text-white py-2 px-4 rounded hover:bg-[#5E4DFB] transition-colors">
         Submit
       </button >
     </div >

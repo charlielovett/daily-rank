@@ -40,7 +40,7 @@ export default function Home() {
           className={`py-2 px-4 rounded
           ${hasSubmitted ?
               "bg-white text-[#767676] border border-[#767676]" :
-              "bg-[#7E71FC] text-white hover:bg-[#5E4DFB]"}`}
+              "bg-primary text-white hover:bg-[#5E4DFB]"}`}
           onClick={() => setShowSubmitModal(true)}
           disabled={hasSubmitted}
         >

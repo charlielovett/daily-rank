@@ -10,6 +10,7 @@ export default function Results() {
     const {
         userRank,
         worldRank,
+        totalSubmissions,
         fetchWorldRank,
     } = useStore();
 
@@ -80,9 +81,16 @@ export default function Results() {
                             </div>
                         ))}
                     </div>
-                    
+
                 </div>
             </div>
+
+            {/* Total Submissions */}
+            <div className="flex flex-col items-center justify-center">
+                <p className="text-sm">Total Submissions</p>
+                <h3 className="text-3xl tracking-wider font-bold text-[#7E71FC]">{totalSubmissions.toLocaleString()}</h3>
+            </div>
+
         </div >
     );
 }

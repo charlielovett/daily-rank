@@ -1,9 +1,5 @@
-import { useState } from "react";
-
-interface RankItem {
-    id: string;
-    content: string;
-}
+import { useEffect, useState } from "react";
+import { useStore } from '../utils/store';
 
 interface Tab {
     id: string;
@@ -11,21 +7,17 @@ interface Tab {
 }
 
 export default function Results() {
-    const userRank: RankItem[] = ([
-        { id: 'item-1', content: 'Chicago' },
-        { id: 'item-2', content: 'Los Angeles' },
-        { id: 'item-3', content: 'Miami' },
-        { id: 'item-4', content: 'New York' },
-        { id: 'item-5', content: 'Houston' },
-    ]);
+    const {
+        userRank,
+        worldRank,
+        fetchWorldRank,
+    } = useStore();
 
-    const worldRank: RankItem[] = ([
-        { id: 'item-1', content: 'New York' },
-        { id: 'item-2', content: 'Los Angeles' },
-        { id: 'item-3', content: 'Chicago' },
-        { id: 'item-4', content: 'Houston' },
-        { id: 'item-5', content: 'Miami' },
-    ]);
+    useEffect(() => {
+        if (worldRank.length === 0) {
+            fetchWorldRank();
+        }
+    }, [fetchWorldRank, worldRank])
 
     const tabs: Tab[] = ([
         { id: 'tab-1', name: 'My Rank' },
@@ -83,12 +75,12 @@ export default function Results() {
 
                                 {/* Items */}
                                 <div className="bg-white text-[#7E71FC] p-4 rounded-md w-full">
-                                    <span>{item.content}</span>
+                                    <span>{item.name}</span>
                                 </div>
                             </div>
                         ))}
                     </div>
-
+                    
                 </div>
             </div>
         </div >

@@ -24,7 +24,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold">
             Rank your
           </ h1>
-          <h1 className="text-3xl text-[#7E71FC] font-bold">
+          <h1 className="text-3xl text-primary font-bold">
             favorite cities
           </h1>
         </div>

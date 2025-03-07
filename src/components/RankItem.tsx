@@ -12,7 +12,7 @@ interface RankItemProps {
 }
 
 const rankColorMap: Record<number, string> = {
-    1: "bg-[#7E71FC]",
+    1: "bg-primary",
     2: "bg-[#9990FD]",
     3: "bg-[#B5AEFE]",
     4: "bg-[#D0CDFE]",

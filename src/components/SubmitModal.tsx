@@ -15,7 +15,7 @@ export default function SubmitModal({ show, onClose, onSubmit}: ModalProps) {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 bg-blur-lg overflow-y-auto h-full w-full flex items-center justify-center">
             <div className="w-[90%] px-4 pt-6 pb-4 border rounded-[20px] bg-white">
                 <div className="flex flex-col gap-4 text-center">
-                    <h3 className="text-2xl font-bold text-[#7E71FC]">Ready to Submit?</h3>
+                    <h3 className="text-2xl font-bold text-primary">Ready to Submit?</h3>
                     <p className="text-md text-black">
                         Please confirm that you're happy with your rankings.
                         You won't be able to edit them after submission.
@@ -29,7 +29,7 @@ export default function SubmitModal({ show, onClose, onSubmit}: ModalProps) {
                         </button>
                         <Link
                             href="/results"
-                            className="flex items-center justify-center bg-[#7E71FC] text-white w-full h-12 rounded-[10px] hover:bg-[#5E4DFB]"
+                            className="flex items-center justify-center bg-primary text-white w-full h-12 rounded-[10px] hover:bg-[#5E4DFB]"
                             onClick={onSubmit}
                         >
                             Submit

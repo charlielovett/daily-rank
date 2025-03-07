@@ -10,6 +10,7 @@ import { useStore } from '../utils/store';
 export default function RankingList() {
     const {
         userRank,
+        hasSubmitted,
         setUserRank,
         fetchDailyItems,
     } = useStore();
@@ -52,6 +53,7 @@ export default function RankingList() {
             <SortableContext
                 items={userRank.map(item => item.id)}
                 strategy={verticalListSortingStrategy}
+                disabled={hasSubmitted}
             >
                 <div className="h-full flex flex-col justify-between">
                     {userRank.map((item, index) => (

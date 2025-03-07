@@ -3,11 +3,12 @@ import Link from "next/link";
 type ModalProps = {
     show: boolean;
     onClose: () => void;
+    onSubmit: () => void;
     // title?: string;
     // children?: React.ReactNode;
 };
 
-export default function SubmitModal({ show, onClose}: ModalProps) {
+export default function SubmitModal({ show, onClose, onSubmit}: ModalProps) {
     if (!show) return null;
 
     return (
@@ -29,6 +30,7 @@ export default function SubmitModal({ show, onClose}: ModalProps) {
                         <Link
                             href="/results"
                             className="flex items-center justify-center bg-[#7E71FC] text-white w-full h-12 rounded-[10px] hover:bg-[#5E4DFB]"
+                            onClick={onSubmit}
                         >
                             Submit
                         </Link>

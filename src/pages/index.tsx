@@ -1,9 +1,11 @@
 import RankingList from "@/components/RankingList";
 import SubmitModal from "@/components/SubmitModal";
 import { useState } from "react";
+import { useStore } from "../utils/store";
 
 
 export default function Home() {
+  const { hasSubmitted, submitRank } = useStore();
   const [showSubmitModal, setShowSubmitModal] = useState(false);
 
   return (
@@ -11,6 +13,7 @@ export default function Home() {
       <SubmitModal
         show={showSubmitModal}
         onClose={() => setShowSubmitModal(false)}
+        onSubmit={submitRank}
       />
 
       {/* height = screen - header.height - margin.height ** 2 */}
@@ -34,8 +37,12 @@ export default function Home() {
 
         {/* Submit Button summons modal*/}
         <button
-          className="bg-[#7E71FC] text-white py-2 px-4 rounded hover:bg-[#5E4DFB]"
+          className={`py-2 px-4 rounded
+          ${hasSubmitted ?
+              "bg-white text-[#767676] border border-[#767676]" :
+              "bg-[#7E71FC] text-white hover:bg-[#5E4DFB]"}`}
           onClick={() => setShowSubmitModal(true)}
+          disabled={hasSubmitted}
         >
           Submit
         </button >

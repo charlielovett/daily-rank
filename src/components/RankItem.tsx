@@ -8,7 +8,7 @@ import { MdDragIndicator } from "react-icons/md";
 interface RankItemProps {
     id: string;
     rank: number;
-    content: string;
+    name: string;
 }
 
 const rankColorMap: Record<number, string> = {
@@ -19,7 +19,7 @@ const rankColorMap: Record<number, string> = {
     5: "bg-[#EBEBFF]",
 };
 
-export function RankItem({ id, rank, content }: RankItemProps) {
+export function RankItem({ id, rank, name }: RankItemProps) {
     const {
         attributes,
         listeners,
@@ -51,7 +51,7 @@ export function RankItem({ id, rank, content }: RankItemProps) {
                 className={`bg-[#EBEBFF] p-4 rounded-md w-full cursor-grab active:cursor-grabbing flex justify-between items-center
                    ${isDragging ? 'border border-[#5E4DFB] shadow-sm z-10' : ''}`}
             >
-                <span>{content}</span>
+                <span>{name}</span>
                 <MdDragIndicator className="text-[#BFB8FD] text-2xl" />
             </div>
         </div>

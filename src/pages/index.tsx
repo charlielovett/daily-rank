@@ -1,12 +1,24 @@
 import RankingList from "@/components/RankingList";
 import SubmitModal from "@/components/SubmitModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useStore } from "../utils/store";
+import { useRouter } from "next/router";
 
 
 export default function Home() {
-  const { hasSubmitted, submitRank } = useStore();
+  const router = useRouter();
+  const { hasSubmitted, currentDate, submitRank, fetchDailyItems } = useStore();
   const [showSubmitModal, setShowSubmitModal] = useState(false);
+
+  // push to results page if user has already submitted
+  useEffect(() => {
+    fetchDailyItems();
+
+    if (hasSubmitted) {
+      router.push('/results');
+    }
+
+  }, [hasSubmitted, router, currentDate, fetchDailyItems]);
 
   return (
     <div>
